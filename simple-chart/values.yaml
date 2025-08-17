@@ -17,13 +17,13 @@ ingress:
       paths: 
         - path: /dev
           pathType: Prefix
-          serviceName: "dev-app"
+          serviceName: "helm-dev-app-simple-chart"
         - path: /prod
           pathType: Prefix
-          serviceName: "prod-app"
+          serviceName: "helm-prod-app-simple-chart"
         - path: /staging
           pathType: Prefix
-          serviceName: "staging-app"
+          serviceName: "helm-staging-app-simple-chart"
 
 resources:
     limits:
