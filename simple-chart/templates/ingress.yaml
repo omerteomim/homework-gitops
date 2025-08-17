@@ -9,13 +9,11 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: {{ .Values.ingress.className }}
-  {{- if .Values.ingress.hosts }}
   rules:
-  {{- range .Values.ingress.hosts }}
-    - {{- if .host }}host: {{ .host | quote }}{{- end }}
+    - host: {{ default "" (index .Values.ingress.hosts 0).host | quote }}
       http:
         paths:
-        {{- range .paths }}
+          {{- range (index .Values.ingress.hosts 0).paths }}
           - path: {{ .path }}
             pathType: {{ default "Prefix" .pathType }}
             backend:
@@ -23,7 +21,5 @@ spec:
                 name: {{ .serviceName | default (include "simple-chart.fullname" $) }}
                 port:
                   number: {{ $.Values.service.port }}
-        {{- end }}
-  {{- end }}
-  {{- end }}
+          {{- end }}
 {{- end }}
