@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -11,11 +11,11 @@ spec:
   ingressClassName: {{ .Values.ingress.className }}
   {{- if .Values.ingress.hosts }}
   rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
+  {{- range .Values.ingress.hosts }}
+    - {{- if .host }}host: {{ .host | quote }}{{- end }}
       http:
         paths:
-          {{- range .paths }}
+        {{- range .paths }}
           - path: {{ .path }}
             pathType: {{ default "Prefix" .pathType }}
             backend:
@@ -23,6 +23,7 @@ spec:
                 name: {{ .serviceName | default (include "simple-chart.fullname" $) }}
                 port:
                   number: {{ $.Values.service.port }}
-          {{- end }}
-    {{- end }}
+        {{- end }}
+  {{- end }}
+  {{- end }}
 {{- end }}
