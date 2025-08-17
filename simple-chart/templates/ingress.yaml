@@ -15,9 +15,7 @@ spec:
         paths:
           {{- range .paths }}
           - path: {{ .path }}
-            {{- with .pathType }}
-            pathType: {{ .pathType }}
-            {{- end }}
+            pathType: {{ default "Prefix" .pathType }}
             backend:
               service:
                 name: {{ include "simple-chart.fullname" $ }}
