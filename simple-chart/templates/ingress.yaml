@@ -23,6 +23,8 @@ spec:
                 name: {{ include "simple-chart.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
+          {{- end }}
+    {{- end }}
   {{- else }}
   rules:
     - http:
