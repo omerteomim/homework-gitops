@@ -18,7 +18,7 @@ spec:
             pathType: {{ default "Prefix" .pathType }}
             backend:
               service:
-                name: {{ include "simple-chart.fullname" $ }}
+                name: {{ .serviceName | default (include "simple-chart.fullname" $) }}
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}

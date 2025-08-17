@@ -15,8 +15,15 @@ ingress:
   hosts:
     - host: ""
       paths: 
-        - path: /
+        - path: /dev
           pathType: Prefix
+          serviceName: "dev-app"
+        - path: /prod
+          pathType: Prefix
+          serviceName: "prod-app"
+        - path: /staging
+          pathType: Prefix
+          serviceName: "staging-app"
 
 resources:
     limits:
