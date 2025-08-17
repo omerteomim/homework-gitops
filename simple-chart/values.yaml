@@ -12,6 +12,11 @@ service:
 ingress:
   enabled: true
   className: "nginx"
+  hosts:
+    - host: ""
+      paths: 
+        - path: /
+          pathType: Prefix
 
 resources:
     limits:
