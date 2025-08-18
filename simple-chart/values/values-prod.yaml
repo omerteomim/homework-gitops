@@ -1,0 +1,13 @@
+image:
+  repository: omerteomim/prod-app
+  tag: 20250818132403
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: ""
+      paths:
+        - path: /dev
+          pathType: Prefix
+          serviceName: "helm-prod-app-simple-chart"

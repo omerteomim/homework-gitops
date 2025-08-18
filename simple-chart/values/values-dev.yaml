@@ -1,0 +1,13 @@
+image:
+  repository: omerteomim/dev-app
+  tag: 20250818132403
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: ""
+      paths:
+        - path: /dev
+          pathType: Prefix
+          serviceName: "helm-dev-app-simple-chart"
