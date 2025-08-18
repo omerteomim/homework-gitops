@@ -37,7 +37,7 @@ healthCheck:
   livenessPath: /
   readinessPath: /
 
-  secrets:
+secrets:
   OPENROUTER_API_KEY:
     secretName: app-secrets
     secretKey: OPENROUTER_API_KEY
