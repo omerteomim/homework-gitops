@@ -1,0 +1,13 @@
+image:
+  repository: omerteomim/staging-app
+  tag: 20250818132403
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: ""
+      paths:
+        - path: /staging
+          pathType: Prefix
+          serviceName: "helm-staging-app-simple-chart"
