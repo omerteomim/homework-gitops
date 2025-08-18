@@ -1,6 +1,6 @@
 image:
   repository: omerteomim/prod-app
-  tag: "20250818134544"
+  tag: "20250818175236"
 
 ingress:
   enabled: true
