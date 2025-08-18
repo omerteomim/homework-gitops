@@ -1,6 +1,6 @@
 image:
   repository: omerteomim/dev-app
-  tag: "20250818175236"
+  tag: "20250818181721"
 
 ingress:
   enabled: true
