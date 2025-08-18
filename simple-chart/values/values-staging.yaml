@@ -1,6 +1,6 @@
 image:
   repository: omerteomim/staging-app
-  tag: "20250818181721"
+  tag: "20250818182705"
 
 ingress:
   enabled: true
