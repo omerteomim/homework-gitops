@@ -36,3 +36,8 @@ resources:
 healthCheck:
   livenessPath: /
   readinessPath: /
+
+  secrets:
+  OPENROUTER_API_KEY:
+    secretName: app-secrets
+    secretKey: OPENROUTER_API_KEY
